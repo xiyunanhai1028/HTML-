@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#test{
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				border: 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="test" width="300" height="300"></canvas>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var testNode=document.querySelector("#test")
+			if(testNode.getContext){
+				var ctx=testNode.getContext("2d")
+				ctx.fillStyle="pink"
+				ctx.lineWidth=40
+				ctx.lineJoin="round"
+				ctx.fillRect(0,0,100,100)
+				ctx.strokeRect(100,100,100,100)
+//				ctx.clearRect(100,100,100,100)
+			}
+		}
+	</script>
+</html>

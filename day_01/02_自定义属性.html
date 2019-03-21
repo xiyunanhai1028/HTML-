@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="test" data-xin-ce="新策">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var testNode=document.querySelector("#test")
+			console.log(testNode.dataset.xinCe)
+			testNode.dataset.xinCe="新策科技有限公司"
+		}
+	</script>
+</html>

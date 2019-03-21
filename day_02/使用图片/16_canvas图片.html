@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+				
+			#test{
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				background: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="test" width="400" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var canvas=document.querySelector("#test");
+			if(canvas.getContext){
+				var ctx=canvas.getContext("2d");
+				var img=new Image();
+				img.src="images/a.jpg";
+				img.onload=function(){
+					//插入图片
+//					ctx.drawImage(img,0,0,img.width,img.height);
+					//设置背景
+					var pattern=ctx.createPattern(img,"repeat");
+					ctx.fillStyle=pattern;
+					ctx.fillRect(0,0,400,400);
+				}
+			}
+			
+		}
+	</script>
+</html>

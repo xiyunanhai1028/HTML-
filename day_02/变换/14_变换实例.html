@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#test{
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				background: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="test" width="300" height="300"></canvas>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var canvas=document.querySelector("#test");
+			if(canvas.getContext){
+				var ctx=canvas.getContext("2d")
+				var rotateFlag=0;
+				var scale=0;
+				var scaleFlag=0;
+				ctx.save();
+				ctx.translate(150,150)
+				ctx.beginPath();
+				ctx.rect(-50,-50,100,100)
+				ctx.stroke()
+				setInterval(function(){
+					rotateFlag++;
+					ctx.clearRect(0,0,canvas.width,canvas.height);
+					ctx.save();
+					ctx.translate(150,150)
+					ctx.rotate(rotateFlag*Math.PI/180)
+					if(scale==100){
+						scaleFlag=-1
+					}else if(scale==0){
+						scaleFlag=1
+					}
+					scale+=scaleFlag;
+					ctx.scale(scale/50,scale/50);
+					ctx.beginPath();
+					ctx.rect(-50,-50,100,100)
+					ctx.stroke()
+					ctx.restore();
+				},1000/60)
+				ctx.restore();
+			}
+		}
+	</script>
+</html>

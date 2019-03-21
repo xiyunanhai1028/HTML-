@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="test" width="300" height="300"></canvas>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var canvas=document.querySelector("#test");
+			canvas.width=document.documentElement.clientWidth;
+			canvas.height=document.documentElement.clientHeight;
+			if(canvas.getContext){
+				var ctx=canvas.getContext("2d");
+				var positon=0;
+				var offsetX=0
+				setInterval(function(){
+					ctx.clearRect(0,0,canvas.width,canvas.height);
+					positon>7?positon=1:positon++;
+					offsetX>canvas.width?offsetX=0:offsetX+=10;
+					var img=new Image();
+					img.src="images/q_r"+(positon)+".jpg"
+					img.onload=function(){
+						ctx.drawImage(img,offsetX,0);
+					}
+				},100);
+			}
+		}
+	</script>
+</html>

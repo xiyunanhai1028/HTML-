@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#test{
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="test" width="300" height="300"></canvas>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var canvas=document.querySelector("#test");
+			if(canvas.getContext){
+				var ctx=canvas.getContext("2d");
+				ctx.arc(150,150,100,0,360*Math.PI/180);
+				ctx.fill();
+				canvas.onclick=function(ev){
+					ev=ev||event;
+					var x=ev.clientX-canvas.offsetLeft;
+					var y=ev.clientY-canvas.offsetTop;
+					if(ctx.isPointInPath(x,y)){
+						alert(123);
+					}
+				}
+			}
+		}
+	</script>
+</html>

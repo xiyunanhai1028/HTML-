@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="test" class="name1 name2 name3">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var divNode=document.querySelector("#test")
+			divNode.classList.add("name4")
+			divNode.classList.remove("name2")
+			divNode.classList.toggle("name3")
+			console.log(divNode.classList)
+		}
+	</script>
+</html>
