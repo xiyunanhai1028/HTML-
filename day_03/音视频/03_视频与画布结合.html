@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#canvas{
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<video autoplay="true" width="0" height="0" src="http://www.17sucai.com/preview/501914/2017-08-04/%E9%A1%B5%E9%9D%A2/media/mov_bbb.mp4"></video>
+		<canvas id="canvas" width="300" height="300"></canvas>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var videoNode=document.querySelector("video");
+			var canvasNode=document.querySelector("#canvas");
+			if(canvasNode.getContext){
+				var ctx=canvasNode.getContext("2d");
+				videoNode.addEventListener("loadeddata",function(){
+					setInterval(function(){
+						ctx.drawImage(videoNode,0,0,canvasNode.width,canvasNode.height);
+					},10);
+				})
+			}
+		}
+	</script>
+</html>

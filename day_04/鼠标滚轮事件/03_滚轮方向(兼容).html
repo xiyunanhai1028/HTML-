@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#wrap{
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				width: 200px;
+				height: 200px;
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var wrapNode=document.querySelector("#wrap");
+			//火狐浏览器
+			if(wrapNode.addEventListener){
+				wrapNode.addEventListener("DOMMouseScroll",fn)
+			}
+			wrapNode.onmousewheel=fn;
+			
+			function fn(ev){
+				ev=ev||event;
+				var dir="";
+				if(ev.wheelDelta){
+					ev.wheelDelta>0?dir="up":dir="down";
+				}else{
+					ev.detail>0?dir="down":dir="up";
+				}
+				console.log(dir);
+			}
+		}
+	</script>
+</html>

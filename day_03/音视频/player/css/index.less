@@ -1,0 +1,60 @@
+@import "reset.less";
+#wrap{
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: #383838;
+    font-size: 0px;
+    min-width: 600px;
+    &>.control{
+        height: 25px;
+        background: #2A2A2A;
+        position: relative;
+        &>.btns{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 55px;
+            height: 25px;
+            background: red;
+        }
+        &>.progress{
+            position: relative;
+            margin: 0 230px 0 55px;
+            height: 25px;
+            &>.gray_progress{
+                position: absolute;
+                left: 0;
+                top: 11px;
+                height: 3px;
+                width: 100%;
+                background: #737373;
+                &>.inner{
+                    position: absolute;
+                    display: inline-block;
+                    margin-top: -2px;
+                    width: 9px;
+                    height: 7px;
+                    background: white;
+                    border-radius: 2px;
+                }
+            }
+            &>.deep_progress{
+                position: absolute;
+                left: 0;
+                top: 11px;
+                height: 3px;
+                width: 0;
+                background: deeppink;
+            }
+        }
+        &>.sound_box{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 230px;
+            height: 25px;
+            background: green;
+        }
+    }
+}

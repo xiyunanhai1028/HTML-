@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+			}
+			#wrap{
+				background: pink;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+			#inner{
+				background: deeppink;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+		</style>
+	</head>
+	<body style="height: 3000px;">
+		<div id="wrap">
+			<div id="inner">
+				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//相对于body
+		window.onload=function(){
+			var inner=document.querySelector("#inner");
+			var  rect=inner.getBoundingClientRect();
+			console.log(rect.left,rect.top);
+			var srollLeft=document.documentElement.scrollLeft || document.body.scrollLeft;
+			var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+			console.log(srollLeft,scrollTop);
+			var L=rect.left+screenLeft;
+			var T=rect.top+scrollTop;
+			console.log(L,T);
+		}	
+	</script>
+</html>

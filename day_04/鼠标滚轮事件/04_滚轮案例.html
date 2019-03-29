@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#wrap{
+				width: 100%;
+				height: 200px;
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var wrapNode=document.querySelector("#wrap");
+			//火狐浏览器
+			if(wrapNode.addEventListener){
+				wrapNode.addEventListener("DOMMouseScroll",fn)
+			}
+			wrapNode.onmousewheel=fn;
+			
+			function fn(ev){
+				ev=ev||event;
+				var dir="";
+				if(ev.wheelDelta){//非火狐
+					ev.wheelDelta>0?dir="up":dir="down";
+				}else{//火狐
+					ev.detail>0?dir="down":dir="up";
+				}
+				
+				switch (dir){
+					case "up":
+						wrapNode.style.height=wrapNode.offsetHeight+10+"px";
+						break;
+					case "down":
+						wrapNode.style.height=wrapNode.offsetHeight-10+"px";
+						break;
+				}
+				//DOM2:禁止事件的默认行为
+				if(ev.preventDefault){
+					ev.preventDefault();
+				}
+				
+				//DOM:禁止事件的默认行为
+				return false;
+			}
+		}
+	</script>
+</html>

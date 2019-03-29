@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+			}
+			#wrap{
+				background: pink;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+			#inner{
+				background: deeppink;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+		</style>
+	</head>
+	<body style="height: 3000px;">
+		<div id="wrap">
+			<div id="inner">
+				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var inner=document.querySelector("#inner");
+		window.onscroll=function(){
+			var L=document.documentElement.scrollLeft || document.body.scrollLeft;
+			var T=document.documentElement.scrollTop || document.body.scrollTop;
+			console.log(L,T);
+		}
+	</script>
+</html>

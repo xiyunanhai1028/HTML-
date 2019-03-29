@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<div id="wrap">
+			<video src="http://www.17sucai.com/preview/501914/2017-08-04/%E9%A1%B5%E9%9D%A2/media/mov_bbb.mp4">
+			</video>
+			<div class="control">
+				<div class="btns">
+					<span class="start"></span>
+					<span class="stop"></span>
+				</div>
+				<div class="progress">
+					<div class="gray_progress">
+						<span class="inner"></span>
+					</div>
+					<div class="deep_progress"></div>
+				</div>
+				<div class="sound_box">
+					<div class="time">
+						<span>00:00:00/00:00:00</span>
+					</div>
+					<div class="sound">
+						<span></span>
+					</div>
+					<div class="gray_progress">
+						<span class="inner"></span>
+					</div>
+					<div class="deep_progress"></div>
+					<div class="full_screen"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="./js/drag.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var videoNode=document.querySelector("video");
+			var controlNode=document.querySelector("#wrap>.control");
+			var innerNode=document.querySelector("#wrap>.control>.progress>.gray_progress>.inner");
+			var deepProgressNode=document.querySelector("#wrap>.control>.progress>.deep_progress");
+			videoNode.width=document.documentElement.clientWidth;
+			videoNode.height=document.documentElement.clientHeight-controlNode.offsetHeight;
+			window.onresize=function(){
+				if(document.documentElement.clientWidth>=600){
+					videoNode.width=document.documentElement.clientWidth;
+					videoNode.height=document.documentElement.clientHeight-controlNode.offsetHeight;
+				}
+			}
+			var callback={
+				move:function(){
+					deepProgressNode.style.width=innerNode.offsetLeft+"px";
+				}
+			}
+			$.drag(innerNode,callback);
+		}
+	</script>
+</html>
